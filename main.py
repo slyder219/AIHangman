@@ -98,8 +98,9 @@ class gameplay():
             difDic = {1 : "easy",2 : "medium",3 : "hard"}
             difWord = difDic[dif]
 
-            key = "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"
-            openai.api_key = key
+            # get open ai keyy enronment variable
+            OPENAI_KEY = os.environ.get("OPENAI_KEY")
+            openai.api_key = OPENAI_KEY
             model = "gpt-3.5-turbo"
             temp = .75
             messages = [{"role": "user", "content": f"I'm making a hangman game. Please generate an {difWord} difficulty random word with {num} letters. Your response should contain only the word with no formatting and in all lowercase."}]       
